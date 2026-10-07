@@ -1,0 +1,44 @@
+<main class="login-page">
+  <div class="login-art" aria-hidden="true">
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+    <div class="art-caption"><span>PRIVATE BY DESIGN</span><span>YOUR FILES, YOUR SPACE</span></div>
+    <div class="art-mark">P<span>.</span></div>
+  </div>
+  <section class="login-panel" aria-labelledby="login-title">
+    <a class="wordmark" href="/login" aria-label="Personal Cloud home"
+      ><span class="wordmark-mark">P</span><span>Personal Cloud</span></a
+    >
+    <div class="login-copy">
+      <p class="eyebrow">YOUR PRIVATE WORKSPACE</p>
+      <h1 id="login-title">Welcome back.</h1>
+      <p class="muted">Sign in to reach your files.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <label for="username">Username</label
+      ><input
+        id="username"
+        type="text"
+        formControlName="username"
+        autocomplete="username"
+        required
+      />
+      <label for="password">Password</label
+      ><input
+        id="password"
+        type="password"
+        formControlName="password"
+        autocomplete="current-password"
+        required
+      />
+      <p *ngIf="error()" class="form-error" role="alert">{{ error() }}</p>
+      <button class="sign-in" type="submit" [disabled]="loading()">
+        {{ loading() ? 'Signing in…' : 'Sign in' }}
+        <span *ngIf="!loading()" aria-hidden="true">→</span>
+      </button>
+    </form>
+    <p class="security-note">
+      <span class="status-dot"></span> Private storage · secure connection
+    </p>
+  </section>
+</main>

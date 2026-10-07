@@ -1,16 +1,60 @@
-# PersonalCloudSystemUi
+# Personal Cloud UI
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.8.
+Responsive Angular 22 client for the Spring Boot personal-cloud API. The UI uses live backend responses and does not bundle sample file data.
+
+## Angular structure
+
+```text
+src/app/
+├── app.ts, app.html, app.scss, app.spec.ts
+├── components/
+│   ├── dashboard/
+│   ├── file-manager/
+│   ├── login/
+│   ├── shell/
+│   └── storage/
+├── services/
+│   ├── auth.service.ts / auth.service.spec.ts
+│   ├── file.service.ts / file.service.spec.ts
+│   ├── folder.service.ts / folder.service.spec.ts
+│   ├── health.service.ts / health.service.spec.ts
+│   └── storage.service.ts / storage.service.spec.ts
+└── core/
+	├── guards/
+	├── interceptors/
+	└── shared models and utilities
+```
+
+Each component folder keeps its `.ts`, `.html`, `.scss`, and `.spec.ts` files together. Components and services are standalone/injectable and are referenced by their owning routes or consumers.
 
 ## Development server
 
-To start a local development server, run:
+Start the backend, then run:
 
 ```bash
-ng serve
+npm install
+npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open `http://localhost:4200/`. Development API requests use `http://localhost:8080/api/v1`, configured in `src/environments/environment.ts`. Set the production API base in `src/environments/environment.prod.ts`.
+
+## Backend integration
+
+The client follows the repository's `/api/v1` contract:
+
+| Capability                      | Endpoint                                                                                      |
+| ------------------------------- | --------------------------------------------------------------------------------------------- |
+| Health and capacity             | `GET /health`, `GET /storage`                                                                 |
+| Login, refresh, logout          | `POST /auth/login`, `/auth/refresh`, `/auth/logout`                                           |
+| List files                      | `GET /files?path=...`                                                                         |
+| Upload one file                 | `POST /files/upload` with multipart `file` and `path` fields                                  |
+| Download / rename / delete file | `GET /files/{id}/download`, `PATCH /files/{id}?name=...&parentPath=...`, `DELETE /files/{id}` |
+| List folders                    | `GET /folders?path=...`                                                                       |
+| Create / rename / delete folder | `POST /folders`, `PATCH /folders/{id}`, `DELETE /folders/{id}`                                |
+
+Access and refresh tokens are held in memory only. A full page reload clears the session and requires signing in again. Access-token expiry is handled with the backend's rotating refresh endpoint.
+
+The backend exposes storage totals and health, but no recent-activity endpoint. The UI omits Recent rather than inventing activity.
 
 ## Code scaffolding
 

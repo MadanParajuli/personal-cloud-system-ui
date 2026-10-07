@@ -1,0 +1,233 @@
+:host {
+  display: block;
+}
+.dashboard {
+  animation: arrive 0.28s ease both;
+}
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.welcome-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 0 38px;
+  border-bottom: 1px solid #e3e8e1;
+}
+.eyebrow {
+  margin: 0 0 11px;
+  color: #71857a;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+h1 {
+  max-width: 600px;
+  margin: 0;
+  color: #263129;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  font-weight: 550;
+  line-height: 1.1;
+}
+.welcome-copy {
+  margin: 13px 0 0;
+  color: #828e85;
+  font-size: 0.86rem;
+}
+.open-files {
+  display: inline-flex;
+  min-height: 40px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 14px;
+  padding: 0 13px;
+  border-radius: 5px;
+  background: #285b4b;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+.open-files:hover {
+  transform: translateY(-1px);
+  background: #1e493c;
+}
+.open-files span {
+  font-size: 1rem;
+}
+.overview {
+  padding: 30px 0 29px;
+  border-bottom: 1px solid #e3e8e1;
+}
+.overview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.overview-heading .eyebrow {
+  margin-bottom: 7px;
+}
+.overview-heading h2 {
+  margin: 0;
+  color: #334138;
+  font-size: 1rem;
+  font-weight: 650;
+}
+.service-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  border: 1px solid #e1eae1;
+  border-radius: 4px;
+  background: #f1f7f1;
+  color: #54735b;
+  font-size: 0.67rem;
+}
+.service-pill > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #56a276;
+}
+.service-pill.service-down {
+  border-color: #f0ded8;
+  background: #fff3ef;
+  color: #a05443;
+}
+.service-pill.service-down > span {
+  background: #ce7658;
+}
+.metrics {
+  display: flex;
+  gap: clamp(42px, 10vw, 150px);
+  padding: 27px 0 2px;
+}
+.metrics > div {
+  display: grid;
+  gap: 4px;
+}
+.metrics strong {
+  color: #365848;
+  font:
+    500 2.3rem/1 'DM Sans',
+    sans-serif;
+}
+.metrics span {
+  color: #89948b;
+  font-size: 0.71rem;
+}
+.metrics-unavailable {
+  margin: 25px 0 2px;
+  color: #8c968e;
+  font-size: 0.78rem;
+}
+.storage-summary {
+  padding: 20px 0 19px;
+  border-bottom: 1px solid #e3e8e1;
+}
+.storage-summary-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.storage-summary-heading .eyebrow {
+  margin-bottom: 6px;
+}
+.storage-summary-heading h2 {
+  margin: 0;
+  color: #3c4b40;
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+.storage-summary-heading a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #4f7460;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.storage-summary-heading a:hover {
+  color: #234a37;
+}
+.quota-meter {
+  height: 7px;
+  overflow: hidden;
+  margin-top: 18px;
+  border-radius: 6px;
+  background: #e6ebe4;
+}
+.quota-meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #4d8a67;
+  transition: width 0.25s ease;
+}
+.quota-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 9px;
+  color: #89948b;
+  font-size: 0.68rem;
+}
+.quota-labels strong {
+  color: #4b5d50;
+  font-weight: 650;
+}
+.storage-message {
+  margin: 16px 0 0;
+  color: #89948b;
+  font-size: 0.74rem;
+}
+.dashboard-footer {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 35px;
+  color: #a0a89f;
+  font-size: 0.64rem;
+}
+.footer-line {
+  width: 30px;
+  height: 1px;
+  background: #cfd8cf;
+}
+.dashboard-footer > span:last-child {
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+@media (max-width: 650px) {
+  .welcome-row {
+    align-items: start;
+    flex-direction: column;
+    padding-bottom: 27px;
+  }
+  h1 {
+    font-size: 2.15rem;
+  }
+  .metrics {
+    gap: 48px;
+  }
+  .metrics strong {
+    font-size: 2rem;
+  }
+  .quota-labels {
+    flex-wrap: wrap;
+  }
+}

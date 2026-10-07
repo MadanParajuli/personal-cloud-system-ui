@@ -1,0 +1,78 @@
+<div class="app-frame">
+  <button
+    *ngIf="navOpen()"
+    class="nav-scrim"
+    aria-label="Close navigation"
+    (click)="closeNavigation()"
+  ></button>
+  <aside class="sidebar" [class.sidebar-open]="navOpen()">
+    <a class="brand" routerLink="/dashboard" (click)="closeNavigation()"
+      ><span class="brand-mark">P</span
+      ><span>personal<span class="brand-cloud">cloud</span></span></a
+    >
+    <p class="nav-label">WORKSPACE</p>
+    <nav aria-label="Main navigation">
+      <a routerLink="/dashboard" routerLinkActive="active" (click)="closeNavigation()"
+        ><span class="nav-icon">⌂</span><span>Dashboard</span></a
+      >
+      <a routerLink="/files" routerLinkActive="active" (click)="closeNavigation()"
+        ><span class="nav-icon">▤</span><span>My files</span></a
+      >
+      <a routerLink="/storage" routerLinkActive="active" (click)="closeNavigation()"
+        ><span class="nav-icon">◫</span><span>Storage</span></a
+      >
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="connection" [class.connection-offline]="backendStatus() === 'offline'">
+        <span class="connection-dot"></span
+        ><span>{{
+          backendStatus() === 'online'
+            ? 'Connected'
+            : backendStatus() === 'offline'
+              ? 'Offline'
+              : 'Checking service'
+        }}</span
+        ><span class="connection-label">API</span>
+      </div>
+      <div class="account-row">
+        <span class="avatar">{{ (username() || 'U').slice(0, 1).toUpperCase() }}</span
+        ><span class="account-name">{{ username() || 'Personal account' }}</span
+        ><button
+          class="logout-button"
+          type="button"
+          title="Sign out"
+          aria-label="Sign out"
+          (click)="logout()"
+        >
+          ↗
+        </button>
+      </div>
+    </div>
+  </aside>
+  <div class="main-column">
+    <header class="topbar">
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Open navigation"
+        (click)="navOpen.set(true)"
+      >
+        ☰
+      </button>
+      <div class="topbar-context">
+        <span class="context-mark">P</span><span>Personal Cloud</span>
+      </div>
+      <div class="topbar-status">
+        <span class="connection-dot"></span
+        >{{
+          backendStatus() === 'online'
+            ? 'All systems operational'
+            : backendStatus() === 'offline'
+              ? 'Service unavailable'
+              : 'Connecting'
+        }}
+      </div>
+    </header>
+    <main class="workspace"><router-outlet /></main>
+  </div>
+</div>

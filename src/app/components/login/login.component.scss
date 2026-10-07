@@ -1,0 +1,225 @@
+:host {
+  display: block;
+  min-height: 100dvh;
+}
+.login-page {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.05fr) minmax(380px, 0.95fr);
+  min-height: 100dvh;
+  background: #f8f8f4;
+}
+.login-art {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background: #214b3f;
+  color: #f5f3e9;
+}
+.login-art::before {
+  position: absolute;
+  inset: 0;
+  content: '';
+  opacity: 0.21;
+  background-image: radial-gradient(#f4f0dd 0.65px, transparent 0.65px);
+  background-size: 21px 21px;
+}
+.orbit {
+  position: absolute;
+  border: 1px solid rgb(243 242 224 / 18%);
+  border-radius: 50%;
+  transform: rotate(-28deg);
+}
+.orbit-one {
+  width: min(68vw, 790px);
+  height: min(68vw, 790px);
+  left: -13%;
+  top: 9%;
+}
+.orbit-two {
+  width: min(48vw, 560px);
+  height: min(48vw, 560px);
+  left: -2%;
+  top: 21%;
+  border-color: rgb(231 190 97 / 46%);
+}
+.art-mark {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font:
+    600 clamp(10rem, 28vw, 26rem)/1 Georgia,
+    serif;
+  color: #e6bc64;
+  opacity: 0.94;
+}
+.art-mark span {
+  color: #f4f1e5;
+}
+.art-caption {
+  position: absolute;
+  right: 34px;
+  bottom: 32px;
+  left: 34px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: rgb(245 243 233 / 65%);
+}
+.login-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(100%, 550px);
+  padding: 64px clamp(32px, 8vw, 108px);
+  margin-inline: auto;
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #252a26;
+  text-decoration: none;
+  font-weight: 650;
+}
+.wordmark-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  background: #dce9dd;
+  color: #245345;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+}
+.login-copy {
+  margin: 86px 0 36px;
+}
+.eyebrow {
+  margin: 0 0 13px;
+  color: #577267;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+h1 {
+  margin: 0;
+  color: #212722;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 560;
+  line-height: 1.07;
+}
+.muted {
+  margin: 14px 0 0;
+  color: #7b817a;
+  font-size: 0.98rem;
+}
+form {
+  display: grid;
+}
+label {
+  margin: 0 0 8px;
+  color: #393f39;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+input {
+  height: 48px;
+  padding: 0 13px;
+  margin: 0 0 22px;
+  border: 1px solid #d7dcd4;
+  border-radius: 6px;
+  outline: none;
+  background: #fff;
+  color: #222722;
+  font: inherit;
+}
+input:focus {
+  border-color: #43836d;
+  box-shadow: 0 0 0 3px rgb(67 131 109 / 13%);
+}
+.form-error {
+  margin: -7px 0 16px;
+  color: #a53932;
+  font-size: 0.82rem;
+}
+.sign-in {
+  display: flex;
+  height: 49px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 6px;
+  background: #285b4b;
+  color: white;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+.sign-in:hover:not(:disabled) {
+  background: #1e493c;
+  transform: translateY(-1px);
+}
+.sign-in:disabled {
+  opacity: 0.68;
+  cursor: wait;
+}
+.sign-in span {
+  font-size: 1.2rem;
+}
+.security-note {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 28px;
+  color: #858a83;
+  font-size: 0.74rem;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #57916a;
+}
+@media (max-width: 760px) {
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+  .login-art {
+    min-height: 190px;
+  }
+  .orbit-one {
+    width: 470px;
+    height: 470px;
+    left: -6%;
+    top: -145px;
+  }
+  .orbit-two {
+    width: 320px;
+    height: 320px;
+    left: 10%;
+    top: -65px;
+  }
+  .art-mark {
+    font-size: 10rem;
+  }
+  .art-caption {
+    right: 18px;
+    bottom: 16px;
+    left: 18px;
+    font-size: 0.57rem;
+  }
+  .login-panel {
+    padding: 34px 26px 50px;
+  }
+  .login-copy {
+    margin: 50px 0 28px;
+  }
+}

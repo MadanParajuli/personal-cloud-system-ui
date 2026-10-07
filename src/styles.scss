@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  color-scheme: light;
+  font-family: 'DM Sans', 'Avenir Next', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --ink: #252c28;
+  --muted: #828d84;
+  --leaf: #285b4b;
+  --line: #e6eae4;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  background: #f8f9f6;
+  color: var(--ink);
+}
+button,
+input {
+  font: inherit;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid rgb(67 131 109 / 45%);
+  outline-offset: 2px;
+}
+::selection {
+  background: #d8e9db;
+  color: #254a39;
+}

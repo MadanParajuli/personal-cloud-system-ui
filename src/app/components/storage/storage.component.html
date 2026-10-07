@@ -1,0 +1,69 @@
+<section class="storage-page" aria-labelledby="storage-title">
+  <p class="eyebrow">SYSTEM OVERVIEW</p>
+  <h1 id="storage-title">Storage</h1>
+  <p class="intro">A clear view of your private storage service.</p>
+  <section class="service-row" aria-label="Backend service status">
+    <div class="service-icon" aria-hidden="true">P</div>
+    <div class="service-copy">
+      <h2>Personal Cloud API</h2>
+      <p>File service · private instance</p>
+    </div>
+    <span class="service-state" [class.offline]="status() === 'offline'"
+      ><span></span
+      >{{
+        status() === 'online' ? 'Online' : status() === 'offline' ? 'Unavailable' : 'Checking'
+      }}</span
+    >
+  </section>
+  <div
+    *ngIf="loading(); else capacityState"
+    class="capacity-loading"
+    aria-label="Loading storage details"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ng-template #capacityState>
+    <section
+      *ngIf="usage() as capacity; else capacityUnavailable"
+      class="capacity-panel"
+      aria-labelledby="capacity-title"
+    >
+      <div class="capacity-heading">
+        <div>
+          <p class="eyebrow">TOTAL CAPACITY</p>
+          <h2 id="capacity-title">{{ formatBytes(capacity.totalBytes) }}</h2>
+        </div>
+        <span class="used-percent">{{ capacity.usedPercentage | number: '1.0-1' }}% used</span>
+      </div>
+      <div
+        class="capacity-meter"
+        role="progressbar"
+        aria-label="Storage used"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        [attr.aria-valuenow]="capacity.usedPercentage"
+      >
+        <span [style.width.%]="capacity.usedPercentage"></span>
+      </div>
+      <div class="capacity-breakdown">
+        <div>
+          <span class="swatch used-swatch"></span>
+          <span>Used</span>
+          <strong>{{ formatBytes(capacity.usedBytes) }}</strong>
+        </div>
+        <div>
+          <span class="swatch free-swatch"></span>
+          <span>Free</span>
+          <strong>{{ formatBytes(capacity.freeBytes) }}</strong>
+        </div>
+      </div>
+    </section>
+  </ng-template>
+  <ng-template #capacityUnavailable>
+    <p class="capacity-error" role="alert">
+      Storage capacity could not be loaded. Your files remain available from My files.
+    </p>
+  </ng-template>
+</section>

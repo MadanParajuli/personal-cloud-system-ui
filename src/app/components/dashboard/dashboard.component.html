@@ -1,0 +1,89 @@
+<section class="dashboard" aria-labelledby="dashboard-title">
+  <div class="welcome-row">
+    <div>
+      <p class="eyebrow">YOUR CLOUD, AT A GLANCE</p>
+      <h1 id="dashboard-title">A little more room to think.</h1>
+      <p class="welcome-copy">Your files, kept close and in your control.</p>
+    </div>
+    <a class="open-files" routerLink="/files">Open my files <span aria-hidden="true">→</span></a>
+  </div>
+
+  <section class="overview" aria-labelledby="overview-title">
+    <div class="overview-heading">
+      <div>
+        <p class="eyebrow">WORKSPACE</p>
+        <h2 id="overview-title">At the root</h2>
+      </div>
+      <span class="service-pill" [class.service-down]="serviceStatus() === 'offline'"
+        ><span></span
+        >{{
+          serviceStatus() === 'online'
+            ? 'Service online'
+            : serviceStatus() === 'offline'
+              ? 'Service unavailable'
+              : 'Checking service'
+        }}</span
+      >
+    </div>
+    <div class="metrics" *ngIf="counts() as summary; else countsUnavailable">
+      <div>
+        <strong>{{ summary.files }}</strong>
+        <span>Files at top level</span>
+      </div>
+      <div>
+        <strong>{{ summary.folders }}</strong>
+        <span>Folders at top level</span>
+      </div>
+    </div>
+    <ng-template #countsUnavailable>
+      <p class="metrics-unavailable">
+        {{
+          serviceStatus() === 'offline'
+            ? 'Could not reach the file service.'
+            : 'Loading your files…'
+        }}
+      </p>
+    </ng-template>
+  </section>
+
+  <section class="storage-summary" aria-labelledby="storage-title">
+    <div class="storage-summary-heading">
+      <div>
+        <p class="eyebrow">CAPACITY</p>
+        <h2 id="storage-title">Storage</h2>
+      </div>
+      <a routerLink="/storage">Details <span aria-hidden="true">→</span></a>
+    </div>
+    <div *ngIf="storage() as usage; else storageUnavailable">
+      <div
+        class="quota-meter"
+        role="progressbar"
+        aria-label="Storage used"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        [attr.aria-valuenow]="usage.usedPercentage"
+      >
+        <span [style.width.%]="usage.usedPercentage"></span>
+      </div>
+      <div class="quota-labels">
+        <span
+          ><strong>{{ formatBytes(usage.usedBytes) }}</strong> used of
+          {{ formatBytes(usage.totalBytes) }}</span
+        ><span>{{ formatBytes(usage.freeBytes) }} free</span>
+      </div>
+    </div>
+    <ng-template #storageUnavailable>
+      <p class="storage-message" *ngIf="storageLoading(); else storageLoadFailed">
+        Loading capacity…
+      </p>
+    </ng-template>
+    <ng-template #storageLoadFailed>
+      <p class="storage-message">Storage capacity could not be loaded.</p>
+    </ng-template>
+  </section>
+
+  <div class="dashboard-footer">
+    <span>Private files. Personal hardware.</span><span class="footer-line"></span
+    ><span>PERSONAL CLOUD</span>
+  </div>
+</section>
