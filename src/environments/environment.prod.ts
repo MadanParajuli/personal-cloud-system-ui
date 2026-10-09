@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://madanparajuli.com/api/v1',
+  apiBaseUrl: 'https://api.madanparajuli.com/api/v1',
 };
