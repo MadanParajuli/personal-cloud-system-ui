@@ -28,6 +28,8 @@ export const APP_ROUTES = {
 
 export const API_ENDPOINTS = {
   authLogin: '/auth/login',
+  authLoginVerify: '/auth/login/verify',
+  authLoginResend: '/auth/login/resend',
   authRefresh: '/auth/refresh',
   authLogout: '/auth/logout',
   health: '/health',

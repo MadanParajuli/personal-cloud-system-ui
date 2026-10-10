@@ -9,6 +9,15 @@ export interface LoginResponse {
   expiresInSeconds: number;
 }
 
+export interface LoginChallengeResponse {
+  twoFactorRequired: true;
+  challengeId: string;
+  maskedEmail: string;
+  expiresInSeconds: number;
+}
+
+export type LoginResult = LoginResponse | LoginChallengeResponse;
+
 export interface RefreshRequest {
   refreshToken: string;
 }

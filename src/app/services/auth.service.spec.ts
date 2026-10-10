@@ -32,6 +32,29 @@ describe('AuthService', () => {
     expect(service.username()).toBe('owner');
   });
 
+  it('does not store tokens until a challenge is verified successfully', () => {
+    service.login({ username: 'owner', password: 'secret' }).subscribe();
+    httpTesting.expectOne(`${environment.apiBaseUrl}${API_ENDPOINTS.authLogin}`).flush({
+      twoFactorRequired: true,
+      challengeId: 'challenge-1',
+      maskedEmail: 'm***@example.com',
+      expiresInSeconds: 300,
+    });
+
+    expect(service.isAuthenticated()).toBe(false);
+    expect(service.getAccessToken()).toBeNull();
+
+    service.verifyLogin('challenge-1', '123456', 'owner').subscribe();
+    const request = httpTesting.expectOne(
+      `${environment.apiBaseUrl}${API_ENDPOINTS.authLoginVerify}`,
+    );
+    expect(request.request.body).toEqual({ challengeId: 'challenge-1', code: '123456' });
+    request.flush({ accessToken: 'access', refreshToken: 'refresh', expiresInSeconds: 300 });
+
+    expect(service.isAuthenticated()).toBe(true);
+    expect(service.getAccessToken()).toBe('access');
+  });
+
   it('navigates to cloud login after logout', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl(APP_ROUTES.home);
