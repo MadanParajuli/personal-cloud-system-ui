@@ -47,7 +47,7 @@ export class PortfolioPublicationsComponent {
     {
       title: 'Deep-Learning-Based Detection of Skin Cells in High-Resolution Histopathology Images for Melanoma Diagnosis',
       authors: 'Madan Parajuli',
-      venue: 'University of South Alabama, Thesis',
+      venue: 'University of South Alabama, MS Thesis',
       year: 2022,
       doi: 'https://www.proquest.com/openview/706c2c7bd4cf1f3d6724fd4311c74bcf/1?pq-origsite=gscholar&cbl=18750&diss=y',
     }
