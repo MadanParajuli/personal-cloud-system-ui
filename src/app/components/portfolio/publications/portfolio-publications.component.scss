@@ -20,7 +20,7 @@
 
 .eyebrow {
   margin: 0 0 15px;
-  color: #68796d;
+  color: #526a7a;
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -50,16 +50,16 @@ h1 {
   align-items: center;
   gap: 16px;
   padding: 0 13px;
-  border: 1px solid #c8d6ca;
+  border: 1px solid #bae6fd;
   border-radius: 4px;
-  color: #285b4b;
+  color: #0369a1;
   font-size: 0.76rem;
   font-weight: 650;
   text-decoration: none;
 }
 
 .scholar-link:hover {
-  background: #e9f0e9;
+  background: #e0f2fe;
 }
 
 .publication-list {
@@ -73,7 +73,7 @@ h1 {
   grid-template-columns: 46px minmax(0, 1fr);
   gap: 18px;
   padding: 25px 0 27px;
-  border-bottom: 1px solid #e1e6df;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .publication-number {
@@ -106,13 +106,13 @@ h1 {
   align-items: baseline;
   gap: 8px 18px;
   margin-top: 10px;
-  color: #68796d;
+  color: #526a7a;
   font-size: 0.7rem;
 }
 
 .publication-meta a {
   margin-left: auto;
-  color: #285b4b;
+  color: #0369a1;
   font-weight: 650;
   text-decoration: underline;
   text-decoration-color: #b9cabc;

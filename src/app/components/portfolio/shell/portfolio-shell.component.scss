@@ -17,7 +17,7 @@
   justify-content: space-between;
   gap: 24px;
   padding: 0 clamp(22px, 6vw, 92px);
-  border-bottom: 1px solid #e6eae4;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .identity {
@@ -33,10 +33,10 @@
   width: 38px;
   height: 38px;
   place-items: center;
-  border: 1px solid #b9cbbd;
+  border: 1px solid #bae6fd;
   border-radius: 50%;
-  background: #e8eee7;
-  color: #285b4b;
+  background: #e0f2fe;
+  color: #0369a1;
   font-size: 0.74rem;
   font-weight: 700;
 }
@@ -71,7 +71,7 @@ nav a,
 nav a:hover,
 nav a.active,
 .site-footer a:hover {
-  color: #285b4b;
+  color: #0369a1;
 }
 
 nav .cloud-link {
@@ -80,14 +80,14 @@ nav .cloud-link {
   align-items: center;
   gap: 8px;
   padding: 0 14px;
-  border: 1px solid #c8d6ca;
+  border: 1px solid #bae6fd;
   border-radius: 5px;
-  color: #285b4b;
+  color: #0369a1;
   font-weight: 650;
 }
 
 nav .cloud-link:hover {
-  background: #e9f0e9;
+  background: #e0f2fe;
 }
 
 .page-content {
@@ -104,7 +104,7 @@ nav .cloud-link:hover {
   justify-content: space-between;
   gap: 16px;
   padding: 0 clamp(22px, 6vw, 92px);
-  border-top: 1px solid #e6eae4;
+  border-top: 1px solid #e2e8f0;
   color: #828d84;
   font-size: 0.72rem;
 }

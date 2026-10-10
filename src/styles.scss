@@ -8,8 +8,8 @@
   -webkit-font-smoothing: antialiased;
   --ink: #252c28;
   --muted: #828d84;
-  --leaf: #285b4b;
-  --line: #e6eae4;
+  --leaf: #0369a1;
+  --line: #e2e8f0;
 }
 * {
   box-sizing: border-box;
@@ -32,7 +32,7 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 summary:focus-visible {
-  outline: 3px solid rgb(67 131 109 / 45%);
+  outline: 3px solid rgb(14 165 233 / 45%);
   outline-offset: 2px;
 }
 ::selection {

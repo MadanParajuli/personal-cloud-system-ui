@@ -17,7 +17,7 @@
 .eyebrow,
 .project-type {
   margin: 0 0 16px;
-  color: #68796d;
+  color: #526a7a;
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -45,7 +45,7 @@ h1 {
   grid-template-columns: 54px minmax(0, 1fr);
   gap: 22px;
   padding: 38px 0;
-  border-bottom: 1px solid #e1e6df;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .project-index {
@@ -62,7 +62,7 @@ h1 {
 
 .project-content h2 {
   margin: 0;
-  color: #2d4537;
+  color: #164e63;
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 2rem;
   font-weight: 400;
@@ -78,7 +78,7 @@ h1 {
 
 .project-stack {
   margin: 16px 0 0;
-  color: #64766a;
+  color: #526a7a;
   font-size: 0.73rem;
   font-weight: 600;
   line-height: 1.8;
@@ -94,7 +94,7 @@ h1 {
   align-items: center;
   gap: 18px;
   margin-top: 22px;
-  color: #285b4b;
+  color: #0369a1;
   font-size: 0.79rem;
   font-weight: 650;
   text-decoration: underline;
@@ -103,7 +103,7 @@ h1 {
 }
 
 .project-link:hover {
-  color: #1e493c;
+  color: #075985;
 }
 
 @media (max-width: 520px) {

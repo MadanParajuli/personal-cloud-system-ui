@@ -17,7 +17,7 @@
 }
 .eyebrow {
   margin: 0 0 10px;
-  color: #71857a;
+  color: #526a7a;
   font-size: 0.64rem;
   font-weight: 750;
   letter-spacing: 0.13em;
@@ -39,8 +39,8 @@ h1 {
   align-items: center;
   gap: 14px;
   padding: 18px 0;
-  border-top: 1px solid #e3e8e1;
-  border-bottom: 1px solid #e3e8e1;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
 }
 .service-icon {
   display: grid;
@@ -49,8 +49,8 @@ h1 {
   flex: 0 0 auto;
   place-items: center;
   border-radius: 10px;
-  background: #dce9dd;
-  color: #285846;
+  background: #e0f2fe;
+  color: #0369a1;
   font:
     600 1.25rem Georgia,
     serif;
@@ -94,8 +94,8 @@ h1 {
 .capacity-panel {
   max-width: 720px;
   padding: 21px 0;
-  border-top: 1px solid #e3e8e1;
-  border-bottom: 1px solid #e3e8e1;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
 }
 .capacity-heading {
   display: flex;
@@ -115,7 +115,7 @@ h1 {
 .used-percent {
   padding: 6px 9px;
   border-radius: 4px;
-  background: #edf5ee;
+  background: #f0f9ff;
   color: #4c775a;
   font-size: 0.68rem;
 }
@@ -124,13 +124,13 @@ h1 {
   overflow: hidden;
   margin: 20px 0 22px;
   border-radius: 7px;
-  background: #e6ebe4;
+  background: #e2e8f0;
 }
 .capacity-meter span {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: #4d8a67;
+  background: #0284c7;
   transition: width 0.25s ease;
 }
 .capacity-breakdown {
@@ -157,22 +157,22 @@ h1 {
   border-radius: 2px;
 }
 .used-swatch {
-  background: #4d8a67;
+  background: #0284c7;
 }
 .free-swatch {
-  background: #dfe6dd;
+  background: #e2e8f0;
 }
 .capacity-loading {
   display: grid;
   max-width: 720px;
   gap: 13px;
   padding: 22px 0;
-  border-top: 1px solid #e3e8e1;
+  border-top: 1px solid #e2e8f0;
 }
 .capacity-loading span {
   height: 14px;
   border-radius: 3px;
-  background: #e9eee8;
+  background: #e2e8f0;
   animation: pulse 1.3s ease-in-out infinite alternate;
 }
 .capacity-loading span:nth-child(2) {

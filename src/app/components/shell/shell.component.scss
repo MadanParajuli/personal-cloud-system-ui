@@ -16,8 +16,8 @@
   height: 100dvh;
   flex-direction: column;
   padding: 28px 17px 18px;
-  border-right: 1px solid #e7eae4;
-  background: #f1f5ef;
+  border-right: 1px solid #e2e8f0;
+  background: #f0f9ff;
 }
 .brand {
   display: flex;
@@ -37,14 +37,14 @@
   flex: 0 0 auto;
   place-items: center;
   border-radius: 10px;
-  background: #dce9dd;
-  color: #285846;
+  background: #e0f2fe;
+  color: #0369a1;
   font:
     600 1.1rem Georgia,
     serif;
 }
 .brand-cloud {
-  color: #668073;
+  color: #526a7a;
   font-weight: 500;
 }
 .nav-label {
@@ -73,19 +73,19 @@ nav a {
     color 0.15s ease;
 }
 nav a:hover {
-  background: #e8eee7;
-  color: #2d5747;
+  background: #e0f2fe;
+  color: #0369a1;
 }
 nav a.active {
-  background: #dce9dd;
-  color: #245543;
+  background: #e0f2fe;
+  color: #0369a1;
   font-weight: 650;
 }
 .nav-icon {
   display: grid;
   width: 19px;
   place-items: center;
-  color: #557264;
+  color: #526a7a;
   font-size: 1.25rem;
   line-height: 1;
 }
@@ -97,7 +97,7 @@ nav a.active {
   align-items: center;
   gap: 8px;
   padding: 10px 11px;
-  color: #617168;
+  color: #526a7a;
   font-size: 0.72rem;
 }
 .connection-label {
@@ -125,7 +125,7 @@ nav a.active {
   align-items: center;
   gap: 10px;
   padding: 9px 4px 0;
-  border-top: 1px solid #dfe6de;
+  border-top: 1px solid #e2e8f0;
 }
 .avatar {
   display: grid;
@@ -159,7 +159,7 @@ nav a.active {
   cursor: pointer;
 }
 .logout-button:hover {
-  background: #e2e9e1;
+  background: #e2e8f0;
   color: #273d32;
 }
 .main-column {
@@ -242,7 +242,7 @@ nav a.active {
     width: 34px;
     height: 34px;
     place-items: center;
-    border: 1px solid #e1e6df;
+    border: 1px solid #e2e8f0;
     border-radius: 6px;
     background: #fff;
     color: #496055;
