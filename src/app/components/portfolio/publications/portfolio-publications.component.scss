@@ -1,0 +1,146 @@
+:host {
+  display: block;
+  min-height: calc(100dvh - 143px);
+}
+
+.publications {
+  max-width: 1000px;
+  padding: clamp(62px, 9vh, 100px) 0 90px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #dbe2da;
+}
+
+.eyebrow {
+  margin: 0 0 15px;
+  color: #68796d;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0;
+  color: #252c28;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.intro-copy {
+  max-width: 600px;
+  margin: 16px 0 0;
+  color: #69746c;
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.scholar-link {
+  display: inline-flex;
+  min-height: 42px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 16px;
+  padding: 0 13px;
+  border: 1px solid #c8d6ca;
+  border-radius: 4px;
+  color: #285b4b;
+  font-size: 0.76rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.scholar-link:hover {
+  background: #e9f0e9;
+}
+
+.publication-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.publication {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 18px;
+  padding: 25px 0 27px;
+  border-bottom: 1px solid #e1e6df;
+}
+
+.publication-number {
+  padding-top: 2px;
+  color: #a97a54;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+}
+
+.publication-copy h2 {
+  max-width: 800px;
+  margin: 0;
+  color: #2c3930;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.authors {
+  margin: 9px 0 0;
+  color: #707b73;
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.publication-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 18px;
+  margin-top: 10px;
+  color: #68796d;
+  font-size: 0.7rem;
+}
+
+.publication-meta a {
+  margin-left: auto;
+  color: #285b4b;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: #b9cabc;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 620px) {
+  .publications {
+    padding-top: 54px;
+  }
+
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .scholar-link {
+    min-height: 38px;
+  }
+
+  .publication {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 10px;
+    padding-block: 21px;
+  }
+
+  .publication-copy h2 {
+    font-size: 1.15rem;
+  }
+}

@@ -63,7 +63,7 @@ export class AuthService {
     return request.pipe(
       catchError(() => of(undefined)),
       tap(() => this.clearSession()),
-      tap(() => void this.router.navigateByUrl('/login')),
+      tap(() => void this.router.navigateByUrl('/cloud/login')),
     );
   }
 

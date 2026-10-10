@@ -36,7 +36,7 @@ export class LoginComponent {
       .login(this.form.getRawValue())
       .pipe(finalize(() => this.loading.set(false)))
       .subscribe({
-        next: () => void this.router.navigateByUrl('/dashboard'),
+        next: () => void this.router.navigateByUrl('/cloud/dashboard'),
         error: (error: unknown) =>
           this.error.set(userErrorMessage(error, 'Unable to sign in. Check your credentials.')),
       });

@@ -1,0 +1,29 @@
+<section class="publications" aria-labelledby="publications-title">
+  <header class="page-heading">
+    <div>
+      <p class="eyebrow">RESEARCH / SELECTED PAPERS</p>
+      <h1 id="publications-title">Publications</h1>
+      <p class="intro-copy">Peer-reviewed work in machine learning, biomedical signal processing, and medical imaging.</p>
+    </div>
+    <a class="scholar-link" href="https://scholar.google.com/citations?user=ZHzPTKEAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">
+      Google Scholar profile <span aria-hidden="true">↗</span>
+    </a>
+  </header>
+
+  <ol class="publication-list">
+    @for (publication of publications; track publication.doi; let index = $index) {
+      <li class="publication">
+        <span class="publication-number">{{ (index + 1).toString().padStart(2, '0') }}</span>
+        <div class="publication-copy">
+          <h2>{{ publication.title }}</h2>
+          <p class="authors">{{ publication.authors }}</p>
+          <div class="publication-meta">
+            <span>{{ publication.venue }}</span>
+            <span>{{ publication.year }}</span>
+            <a href="https://doi.org/{{ publication.doi }}" target="_blank" rel="noreferrer">DOI <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </li>
+    }
+  </ol>
+</section>

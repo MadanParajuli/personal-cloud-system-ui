@@ -34,7 +34,7 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
         }),
         catchError((refreshError: unknown) => {
           auth.clearSession();
-          void router.navigateByUrl('/login');
+          void router.navigateByUrl('/cloud/login');
           return throwError(() => refreshError);
         }),
       );

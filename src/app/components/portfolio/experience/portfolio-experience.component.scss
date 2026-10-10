@@ -1,0 +1,175 @@
+:host {
+  display: block;
+  min-height: calc(100dvh - 143px);
+}
+
+.experience {
+  max-width: 1000px;
+  padding: clamp(64px, 9vh, 100px) 0 90px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  padding-bottom: 38px;
+  border-bottom: 1px solid #dbe2da;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: #68796d;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0;
+  color: #252c28;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.intro-copy {
+  max-width: 630px;
+  margin: 18px 0 0;
+  color: #69746c;
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.experience-list {
+  display: grid;
+}
+
+.job {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 22px;
+  padding: 31px 0 34px;
+  border-bottom: 1px solid #e1e6df;
+}
+
+.company-mark {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid #e3e7e1;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 0.67rem;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.bank-mark {
+  color: #c41230;
+}
+
+.toyota-mark {
+  border-radius: 50%;
+  color: #eb0a1e;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.35rem;
+}
+
+.thoth-mark {
+  color: #285b4b;
+  font-size: 0.62rem;
+}
+
+.moodys-mark {
+  color: #285b4b;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.25rem;
+}
+
+.job-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.job-heading h2 {
+  margin: 0;
+  color: #2a342d;
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.company-name {
+  margin: 4px 0 0;
+  color: #45564a;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.company-name span,
+.job-meta span,
+.job-dates span {
+  color: #828d84;
+  font-weight: 400;
+}
+
+.job-dates {
+  flex: 0 0 auto;
+  margin: 3px 0 0;
+  color: #536157;
+  font-size: 0.76rem;
+  text-align: right;
+}
+
+.job-meta {
+  margin: 10px 0 0;
+  color: #79847c;
+  font-size: 0.74rem;
+}
+
+.job-description {
+  margin: 15px 0 0;
+  color: #59645c;
+  font-size: 0.83rem;
+  line-height: 1.8;
+}
+
+.technology-note {
+  margin: 14px 0 0;
+  color: #64766a;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.technology-note span {
+  padding-inline: 5px;
+  color: #a97a54;
+}
+
+@media (max-width: 640px) {
+  .experience {
+    padding-top: 55px;
+  }
+
+  .job {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    padding-block: 25px;
+  }
+
+  .company-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .job-heading {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .job-dates {
+    text-align: left;
+  }
+}

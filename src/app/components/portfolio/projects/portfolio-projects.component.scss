@@ -1,0 +1,119 @@
+:host {
+  display: block;
+  min-height: calc(100dvh - 143px);
+}
+
+.projects {
+  max-width: 1000px;
+  padding: clamp(70px, 10vh, 110px) 0 90px;
+  margin: 0 auto;
+}
+
+.page-heading {
+  padding-bottom: 35px;
+  border-bottom: 1px solid #dbe2da;
+}
+
+.eyebrow,
+.project-type {
+  margin: 0 0 16px;
+  color: #68796d;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0;
+  color: #252c28;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.intro-copy {
+  max-width: 600px;
+  margin: 18px 0 0;
+  color: #69746c;
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.project-entry {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 22px;
+  padding: 38px 0;
+  border-bottom: 1px solid #e1e6df;
+}
+
+.project-index {
+  margin: 0;
+  color: #a97a54;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.3rem;
+}
+
+.project-type {
+  margin-bottom: 10px;
+  font-size: 0.61rem;
+}
+
+.project-content h2 {
+  margin: 0;
+  color: #2d4537;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.project-description {
+  max-width: 740px;
+  margin: 16px 0 0;
+  color: #59645c;
+  font-size: 0.86rem;
+  line-height: 1.8;
+}
+
+.project-stack {
+  margin: 16px 0 0;
+  color: #64766a;
+  font-size: 0.73rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.project-stack span {
+  padding-inline: 5px;
+  color: #a97a54;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+  color: #285b4b;
+  font-size: 0.79rem;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: #b9cabc;
+  text-underline-offset: 5px;
+}
+
+.project-link:hover {
+  color: #1e493c;
+}
+
+@media (max-width: 520px) {
+  .project-entry {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 12px;
+    padding-top: 29px;
+  }
+
+  .project-content h2 {
+    font-size: 1.7rem;
+  }
+}

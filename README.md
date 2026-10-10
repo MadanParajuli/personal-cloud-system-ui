@@ -1,6 +1,21 @@
-# Personal Cloud UI
+# Madan Parajuli | Research Portfolio
 
-Responsive Angular 22 client for the Spring Boot personal-cloud API. The UI uses live backend responses and does not bundle sample file data.
+Angular 22 SSR portfolio with a public home page and publications entry, plus the existing Personal Cloud client for the Spring Boot API.
+
+## Routes
+
+| Route | Page |
+| --- | --- |
+| `/` | Redirects to `/home` |
+| `/home` | Portfolio home |
+| `/experience` | Work experience |
+| `/projects` | Selected projects |
+| `/publications` | Publication profile linked to Google Scholar |
+| `/cloud` | Redirects to the cloud dashboard when signed in, otherwise to sign-in |
+| `/cloud/login` | Personal Cloud sign-in |
+| `/cloud/dashboard` | Cloud overview |
+| `/cloud/files` | File manager |
+| `/cloud/storage` | Storage details |
 
 ## Angular structure
 
@@ -8,6 +23,13 @@ Responsive Angular 22 client for the Spring Boot personal-cloud API. The UI uses
 src/app/
 ├── app.ts, app.html, app.scss, app.spec.ts
 ├── components/
+│   ├── portfolio/
+│   │   ├── cloud-entry/
+│   │   ├── experience/
+│   │   ├── home/
+│   │   ├── projects/
+│   │   ├── publications/
+│   │   └── shell/
 │   ├── dashboard/
 │   ├── file-manager/
 │   ├── login/
@@ -25,7 +47,7 @@ src/app/
 	└── shared models and utilities
 ```
 
-Each component folder keeps its `.ts`, `.html`, `.scss`, and `.spec.ts` files together. Components and services are standalone/injectable and are referenced by their owning routes or consumers.
+Each portfolio component has its own folder, keeping its `.ts`, `.html`, and `.scss` files together. Components and services are standalone/injectable and are referenced by their owning routes or consumers.
 
 ## Development server
 
@@ -36,7 +58,7 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4200/`. Development API requests use `http://localhost:8080/api/v1`, configured in `src/environments/environment.ts`. Set the production API base in `src/environments/environment.prod.ts`.
+Open `http://localhost:4200/` for the portfolio or `http://localhost:4200/cloud` for Personal Cloud. Development API requests use `http://localhost:8080/api/v1`, configured in `src/environments/environment.ts`. Set the production API base in `src/environments/environment.prod.ts`.
 
 ## Backend integration
 

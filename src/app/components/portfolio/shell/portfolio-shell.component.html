@@ -1,0 +1,20 @@
+<div class="portfolio-frame">
+  <header class="site-header">
+    <a class="identity" routerLink="/home" aria-label="Madan Parajuli, home">
+      <span class="identity-mark" aria-hidden="true">MP</span>
+      <span class="identity-copy">Madan Parajuli<span>Researcher</span></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a routerLink="/home" routerLinkActive="active">Home</a>
+      <a routerLink="/experience" routerLinkActive="active">Experience</a>
+      <a routerLink="/projects" routerLinkActive="active">Projects</a>
+      <a routerLink="/publications" routerLinkActive="active">Publications</a>
+      <a class="cloud-link" routerLink="/cloud"><span aria-hidden="true">↗</span> Personal Cloud</a>
+    </nav>
+  </header>
+  <main class="page-content"><router-outlet /></main>
+  <footer class="site-footer">
+    <span>© {{ currentYear }} Madan Parajuli</span>
+    <a href="https://scholar.google.com/citations?user=ZHzPTKEAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+  </footer>
+</div>

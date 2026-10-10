@@ -6,19 +6,19 @@
     (click)="closeNavigation()"
   ></button>
   <aside class="sidebar" [class.sidebar-open]="navOpen()">
-    <a class="brand" routerLink="/dashboard" (click)="closeNavigation()"
+    <a class="brand" routerLink="/cloud/dashboard" (click)="closeNavigation()"
       ><span class="brand-mark">P</span
       ><span>personal<span class="brand-cloud">cloud</span></span></a
     >
     <p class="nav-label">WORKSPACE</p>
     <nav aria-label="Main navigation">
-      <a routerLink="/dashboard" routerLinkActive="active" (click)="closeNavigation()"
+      <a routerLink="/cloud/dashboard" routerLinkActive="active" (click)="closeNavigation()"
         ><span class="nav-icon">⌂</span><span>Dashboard</span></a
       >
-      <a routerLink="/files" routerLinkActive="active" (click)="closeNavigation()"
+      <a routerLink="/cloud/files" routerLinkActive="active" (click)="closeNavigation()"
         ><span class="nav-icon">▤</span><span>My files</span></a
       >
-      <a routerLink="/storage" routerLinkActive="active" (click)="closeNavigation()"
+      <a routerLink="/cloud/storage" routerLinkActive="active" (click)="closeNavigation()"
         ><span class="nav-icon">◫</span><span>Storage</span></a
       >
     </nav>
