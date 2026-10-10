@@ -8,6 +8,7 @@ import { HealthService } from '../../services/health.service';
 import { formatBytes } from '../../core/format-bytes';
 import { StorageInfo } from '../../core/models';
 import { StorageService } from '../../services/storage.service';
+import { APP_ROUTES } from '../../core/app-routes';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,7 @@ import { StorageService } from '../../services/storage.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent {
+  readonly routes = APP_ROUTES;
   private readonly fileService = inject(FileService);
   private readonly folderService = inject(FolderService);
   private readonly healthService = inject(HealthService);

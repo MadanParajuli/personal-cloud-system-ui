@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { HealthService } from '../../services/health.service';
+import { APP_ROUTES } from '../../core/app-routes';
 
 @Component({
   selector: 'app-shell',
@@ -13,6 +14,7 @@ import { HealthService } from '../../services/health.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShellComponent {
+  readonly routes = APP_ROUTES;
   private readonly auth = inject(AuthService);
   private readonly health = inject(HealthService);
   readonly username = this.auth.username;

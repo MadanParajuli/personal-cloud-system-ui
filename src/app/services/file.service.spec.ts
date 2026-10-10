@@ -3,6 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { TestBed } from '@angular/core/testing';
 import { environment } from '../../environments/environment';
 import { FileService } from './file.service';
+import { API_ENDPOINTS } from '../core/app-routes';
 
 describe('FileService', () => {
   let service: FileService;
@@ -20,7 +21,7 @@ describe('FileService', () => {
 
   it('lists files for a path', () => {
     service.list('Documents').subscribe();
-    const request = httpTesting.expectOne(`${environment.apiBaseUrl}/files?path=Documents`);
+    const request = httpTesting.expectOne(`${environment.apiBaseUrl}${API_ENDPOINTS.files}?path=Documents`);
 
     expect(request.request.method).toBe('GET');
     request.flush([]);

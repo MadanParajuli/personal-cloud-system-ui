@@ -2,12 +2,20 @@ import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, switchMap, throwError } from 'rxjs';
+import { API_ENDPOINTS, APP_ROUTES } from '../app-routes';
 import { AuthService } from '../../services/auth.service';
 
 export const authInterceptor: HttpInterceptorFn = (request, next) => {
   const auth = inject(AuthService);
   const router = inject(Router);
-  const isPublicEndpoint = /\/auth\/(login|refresh|logout)(\?|$)|\/health(\?|$)/.test(request.url);
+  const publicEndpoints = [
+    API_ENDPOINTS.authLogin,
+    API_ENDPOINTS.authRefresh,
+    API_ENDPOINTS.authLogout,
+    API_ENDPOINTS.health,
+  ];
+  const requestPath = request.url.split('?')[0];
+  const isPublicEndpoint = publicEndpoints.some((endpoint) => requestPath.endsWith(endpoint));
   const token = auth.getAccessToken();
   const authenticatedRequest =
     token && !isPublicEndpoint
@@ -34,7 +42,7 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
         }),
         catchError((refreshError: unknown) => {
           auth.clearSession();
-          void router.navigateByUrl('/cloud/login');
+          void router.navigateByUrl(APP_ROUTES.cloudLogin);
           return throwError(() => refreshError);
         }),
       );

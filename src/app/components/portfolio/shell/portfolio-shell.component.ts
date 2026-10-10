@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { APP_ROUTES } from '../../../core/app-routes';
 
 @Component({
   selector: 'app-portfolio-shell',
@@ -10,5 +11,6 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PortfolioShellComponent {
+  readonly routes = APP_ROUTES;
   readonly currentYear = new Date().getFullYear();
 }

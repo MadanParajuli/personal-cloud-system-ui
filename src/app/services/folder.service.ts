@@ -3,11 +3,12 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { FolderItem } from '../core/models';
+import { API_ENDPOINTS } from '../core/app-routes';
 
 @Injectable({ providedIn: 'root' })
 export class FolderService {
   private readonly http = inject(HttpClient);
-  private readonly endpoint = `${environment.apiBaseUrl}/folders`;
+  private readonly endpoint = `${environment.apiBaseUrl}${API_ENDPOINTS.folders}`;
 
   list(path: string): Observable<FolderItem[]> {
     return this.http.get<FolderItem[]>(this.endpoint, { params: { path } });

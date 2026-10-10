@@ -3,6 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { TestBed } from '@angular/core/testing';
 import { environment } from '../../environments/environment';
 import { StorageService } from './storage.service';
+import { API_ENDPOINTS } from '../core/app-routes';
 
 describe('StorageService', () => {
   let service: StorageService;
@@ -20,7 +21,7 @@ describe('StorageService', () => {
 
   it('loads the backend capacity response', () => {
     service.getUsage().subscribe();
-    const request = httpTesting.expectOne(`${environment.apiBaseUrl}/storage`);
+    const request = httpTesting.expectOne(`${environment.apiBaseUrl}${API_ENDPOINTS.storage}`);
 
     expect(request.request.method).toBe('GET');
     request.flush({ totalBytes: 1000, usedBytes: 400, freeBytes: 600, usedPercentage: 40 });

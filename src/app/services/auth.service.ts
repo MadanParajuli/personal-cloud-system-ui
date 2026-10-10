@@ -3,6 +3,7 @@ import { Injectable, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, catchError, finalize, of, shareReplay, tap, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { API_ENDPOINTS, APP_ROUTES } from '../core/app-routes';
 import { LoginRequest, LoginResponse, RefreshRequest } from '../core/models';
 
 @Injectable({ providedIn: 'root' })
@@ -24,7 +25,7 @@ export class AuthService {
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http
-      .post<LoginResponse>(`${environment.apiBaseUrl}/auth/login`, credentials)
+      .post<LoginResponse>(`${environment.apiBaseUrl}${API_ENDPOINTS.authLogin}`, credentials)
       .pipe(tap((tokens) => this.saveSession(tokens, credentials.username)));
   }
 
@@ -37,7 +38,7 @@ export class AuthService {
     }
 
     const request = this.http
-      .post<LoginResponse>(`${environment.apiBaseUrl}/auth/refresh`, {
+      .post<LoginResponse>(`${environment.apiBaseUrl}${API_ENDPOINTS.authRefresh}`, {
         refreshToken: this.refreshToken,
       } satisfies RefreshRequest)
       .pipe(
@@ -55,7 +56,7 @@ export class AuthService {
 
   logout(): Observable<void> {
     const request = this.refreshToken
-      ? this.http.post<void>(`${environment.apiBaseUrl}/auth/logout`, {
+      ? this.http.post<void>(`${environment.apiBaseUrl}${API_ENDPOINTS.authLogout}`, {
           refreshToken: this.refreshToken,
         } satisfies RefreshRequest)
       : of(undefined);
@@ -63,7 +64,7 @@ export class AuthService {
     return request.pipe(
       catchError(() => of(undefined)),
       tap(() => this.clearSession()),
-      tap(() => void this.router.navigateByUrl('/cloud/login')),
+      tap(() => void this.router.navigateByUrl(APP_ROUTES.cloudLogin)),
     );
   }
 

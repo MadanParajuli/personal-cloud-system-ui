@@ -1,18 +1,14 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
+import { APP_ROUTES } from '../app-routes';
 import { AuthService } from '../../services/auth.service';
 
 export const authGuard: CanActivateFn = () => {
   const auth = inject(AuthService);
-  return auth.isAuthenticated() || inject(Router).createUrlTree(['/cloud/login']);
+  return auth.isAuthenticated() || inject(Router).createUrlTree([APP_ROUTES.cloudLogin]);
 };
 
 export const anonymousGuard: CanActivateFn = () => {
   const auth = inject(AuthService);
-  return !auth.isAuthenticated() || inject(Router).createUrlTree(['/cloud/dashboard']);
-};
-
-export const cloudEntryGuard: CanActivateFn = () => {
-  const destination = inject(AuthService).isAuthenticated() ? '/cloud/dashboard' : '/cloud/login';
-  return inject(Router).createUrlTree([destination]);
+  return !auth.isAuthenticated() || inject(Router).createUrlTree([APP_ROUTES.cloudDashboard]);
 };

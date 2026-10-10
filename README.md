@@ -10,7 +10,7 @@ Angular 22 SSR portfolio with a public home page and publications entry, plus th
 | `/home` | Portfolio home |
 | `/experience` | Work experience |
 | `/projects` | Selected projects |
-| `/publications` | Publication profile linked to Google Scholar |
+| `/publications` | Selected publications |
 | `/cloud` | Redirects to the cloud dashboard when signed in, otherwise to sign-in |
 | `/cloud/login` | Personal Cloud sign-in |
 | `/cloud/dashboard` | Cloud overview |
@@ -23,8 +23,8 @@ Angular 22 SSR portfolio with a public home page and publications entry, plus th
 src/app/
 ├── app.ts, app.html, app.scss, app.spec.ts
 ├── components/
+│   ├── cloud/
 │   ├── portfolio/
-│   │   ├── cloud-entry/
 │   │   ├── experience/
 │   │   ├── home/
 │   │   ├── projects/
@@ -35,6 +35,7 @@ src/app/
 │   ├── login/
 │   ├── shell/
 │   └── storage/
+├── app.routes.ts / app.routes.spec.ts
 ├── services/
 │   ├── auth.service.ts / auth.service.spec.ts
 │   ├── file.service.ts / file.service.spec.ts
@@ -48,6 +49,8 @@ src/app/
 ```
 
 Each portfolio component has its own folder, keeping its `.ts`, `.html`, and `.scss` files together. Components and services are standalone/injectable and are referenced by their owning routes or consumers.
+
+Unknown routes return to `/`. Public pages are prerendered; cloud routes are client-rendered because authentication tokens are held in memory.
 
 ## Development server
 

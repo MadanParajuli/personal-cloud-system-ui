@@ -7,7 +7,8 @@ import {
   provideRouter,
 } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { anonymousGuard, authGuard, cloudEntryGuard } from './auth.guard';
+import { APP_ROUTES } from '../app-routes';
+import { anonymousGuard, authGuard } from './auth.guard';
 
 describe('cloud route guards', () => {
   let authenticated: boolean;
@@ -22,7 +23,7 @@ describe('cloud route guards', () => {
     });
   });
 
-  function runGuard(guard: typeof cloudEntryGuard | typeof authGuard | typeof anonymousGuard): string {
+  function runGuard(guard: typeof authGuard | typeof anonymousGuard): string {
     const result = TestBed.runInInjectionContext(() =>
       guard({} as ActivatedRouteSnapshot, {} as RouterStateSnapshot),
     );
@@ -30,13 +31,11 @@ describe('cloud route guards', () => {
   }
 
   it('sends anonymous cloud visitors to sign-in', () => {
-    expect(runGuard(cloudEntryGuard)).toBe('/cloud/login');
-    expect(runGuard(authGuard)).toBe('/cloud/login');
+    expect(runGuard(authGuard)).toBe(APP_ROUTES.cloudLogin);
   });
 
   it('sends authenticated cloud visitors to the dashboard', () => {
     authenticated = true;
-    expect(runGuard(cloudEntryGuard)).toBe('/cloud/dashboard');
-    expect(runGuard(anonymousGuard)).toBe('/cloud/dashboard');
+    expect(runGuard(anonymousGuard)).toBe(APP_ROUTES.cloudDashboard);
   });
 });

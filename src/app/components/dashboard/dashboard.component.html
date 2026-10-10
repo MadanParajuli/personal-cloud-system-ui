@@ -5,7 +5,7 @@
       <h1 id="dashboard-title">A little more room to think.</h1>
       <p class="welcome-copy">Your files, kept close and in your control.</p>
     </div>
-    <a class="open-files" routerLink="/cloud/files">Open my files <span aria-hidden="true">→</span></a>
+    <a class="open-files" [routerLink]="routes.cloudFiles">Open my files <span aria-hidden="true">→</span></a>
   </div>
 
   <section class="overview" aria-labelledby="overview-title">
@@ -52,7 +52,7 @@
         <p class="eyebrow">CAPACITY</p>
         <h2 id="storage-title">Storage</h2>
       </div>
-      <a routerLink="/cloud/storage">Details <span aria-hidden="true">→</span></a>
+      <a [routerLink]="routes.cloudStorage">Details <span aria-hidden="true">→</span></a>
     </div>
     <div *ngIf="storage() as usage; else storageUnavailable">
       <div

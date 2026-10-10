@@ -8,8 +8,8 @@
       Spring Boot, Angular, cloud services, and data systems.
     </p>
     <div class="actions">
-      <a class="primary-action" routerLink="/publications">Explore publications <span aria-hidden="true">↗</span></a>
-      <a class="secondary-action" routerLink="/cloud">Personal Cloud <span aria-hidden="true">→</span></a>
+      <a class="primary-action" [routerLink]="routes.publications">Explore publications <span aria-hidden="true">↗</span></a>
+      <a class="secondary-action" [routerLink]="routes.cloud">Personal Cloud <span aria-hidden="true">→</span></a>
     </div>
     <div class="social-links" aria-label="External profiles">
       <a href="https://scholar.google.com/citations?user=ZHzPTKEAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
@@ -19,22 +19,22 @@
 </section>
 
 <section class="below-fold" aria-label="Portfolio sections">
-  <a routerLink="/experience" class="section-link">
+  <a [routerLink]="routes.experience" class="section-link">
     <span class="section-index">01 / CAREER</span>
     <span class="section-title">Experience</span>
     <span class="section-arrow" aria-hidden="true">↗</span>
   </a>
-  <a routerLink="/projects" class="section-link">
+  <a [routerLink]="routes.projects" class="section-link">
     <span class="section-index">02 / BUILT WORK</span>
     <span class="section-title">Projects</span>
     <span class="section-arrow" aria-hidden="true">↗</span>
   </a>
-  <a routerLink="/publications" class="section-link">
+  <a [routerLink]="routes.publications" class="section-link">
     <span class="section-index">03 / RESEARCH</span>
     <span class="section-title">Publications</span>
     <span class="section-arrow" aria-hidden="true">↗</span>
   </a>
-  <a routerLink="/cloud" class="section-link cloud-section">
+  <a [routerLink]="routes.cloud" class="section-link cloud-section">
     <span class="section-index">04 / TOOLING</span>
     <span class="section-title">Personal Cloud</span>
     <span class="section-arrow" aria-hidden="true">↗</span>

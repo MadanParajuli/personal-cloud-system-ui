@@ -3,11 +3,12 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { FileItem } from '../core/models';
+import { API_ENDPOINTS } from '../core/app-routes';
 
 @Injectable({ providedIn: 'root' })
 export class FileService {
   private readonly http = inject(HttpClient);
-  private readonly endpoint = `${environment.apiBaseUrl}/files`;
+  private readonly endpoint = `${environment.apiBaseUrl}${API_ENDPOINTS.files}`;
 
   list(path: string): Observable<FileItem[]> {
     return this.http.get<FileItem[]>(this.endpoint, { params: { path } });

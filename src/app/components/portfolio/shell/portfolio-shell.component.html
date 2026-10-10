@@ -1,15 +1,15 @@
 <div class="portfolio-frame">
   <header class="site-header">
-    <a class="identity" routerLink="/home" aria-label="Madan Parajuli, home">
+    <a class="identity" [routerLink]="routes.home" aria-label="Madan Parajuli, home">
       <span class="identity-mark" aria-hidden="true">MP</span>
       <span class="identity-copy">Madan Parajuli<span>Researcher</span></span>
     </a>
     <nav aria-label="Main navigation">
-      <a routerLink="/home" routerLinkActive="active">Home</a>
-      <a routerLink="/experience" routerLinkActive="active">Experience</a>
-      <a routerLink="/projects" routerLinkActive="active">Projects</a>
-      <a routerLink="/publications" routerLinkActive="active">Publications</a>
-      <a class="cloud-link" routerLink="/cloud"><span aria-hidden="true">↗</span> Personal Cloud</a>
+      <a [routerLink]="routes.home" routerLinkActive="active">Home</a>
+      <a [routerLink]="routes.experience" routerLinkActive="active">Experience</a>
+      <a [routerLink]="routes.projects" routerLinkActive="active">Projects</a>
+      <a [routerLink]="routes.publications" routerLinkActive="active">Publications</a>
+      <a class="cloud-link" [routerLink]="routes.cloud"><span aria-hidden="true">↗</span> Personal Cloud</a>
     </nav>
   </header>
   <main class="page-content"><router-outlet /></main>
