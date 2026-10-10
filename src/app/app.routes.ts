@@ -14,6 +14,7 @@ import { StorageComponent } from './components/storage/storage.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'login', pathMatch: 'full', redirectTo: 'home' },
   {
     path: '',
     component: PortfolioShellComponent,
