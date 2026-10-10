@@ -1,20 +1,23 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { HealthService } from '../../services/health.service';
-import { APP_ROUTES } from '../../core/app-routes';
+import { NavigationService } from '../../core/navigation.service';
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShellComponent {
-  readonly routes = APP_ROUTES;
+  readonly navigation = inject(NavigationService);
+  readonly dashboardHref = this.navigation.cloudDashboardUrl();
+  readonly filesHref = this.navigation.cloudFilesUrl();
+  readonly storageHref = this.navigation.cloudStorageUrl();
   private readonly auth = inject(AuthService);
   private readonly health = inject(HealthService);
   readonly username = this.auth.username;
@@ -30,6 +33,39 @@ export class ShellComponent {
 
   closeNavigation(): void {
     this.navOpen.set(false);
+  }
+
+  get dashboardActive(): boolean {
+    return this.navigation.isActive(this.dashboardHref);
+  }
+
+  get filesActive(): boolean {
+    return this.navigation.isActive(this.filesHref);
+  }
+
+  get storageActive(): boolean {
+    return this.navigation.isActive(this.storageHref);
+  }
+
+  openDashboard(event: Event): void {
+    if (this.navigation.shouldUseNativeNavigation(event)) return;
+    event.preventDefault();
+    this.closeNavigation();
+    this.navigation.goToCloudDashboard();
+  }
+
+  openFiles(event: Event): void {
+    if (this.navigation.shouldUseNativeNavigation(event)) return;
+    event.preventDefault();
+    this.closeNavigation();
+    this.navigation.goToCloudFiles();
+  }
+
+  openStorage(event: Event): void {
+    if (this.navigation.shouldUseNativeNavigation(event)) return;
+    event.preventDefault();
+    this.closeNavigation();
+    this.navigation.goToCloudStorage();
   }
 
   logout(): void {

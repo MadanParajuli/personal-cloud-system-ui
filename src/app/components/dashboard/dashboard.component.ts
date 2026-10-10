@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { FileService } from '../../services/file.service';
 import { FolderService } from '../../services/folder.service';
@@ -8,18 +7,18 @@ import { HealthService } from '../../services/health.service';
 import { formatBytes } from '../../core/format-bytes';
 import { StorageInfo } from '../../core/models';
 import { StorageService } from '../../services/storage.service';
-import { APP_ROUTES } from '../../core/app-routes';
+import { NavigationService } from '../../core/navigation.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent {
-  readonly routes = APP_ROUTES;
+  private readonly navigation = inject(NavigationService);
   private readonly fileService = inject(FileService);
   private readonly folderService = inject(FolderService);
   private readonly healthService = inject(HealthService);
@@ -29,6 +28,18 @@ export class DashboardComponent {
   readonly storageLoading = signal(true);
   readonly serviceStatus = signal<'checking' | 'online' | 'offline'>('checking');
   readonly formatBytes = formatBytes;
+
+  openMyFiles(): void {
+    this.navigation.goToCloudFiles();
+  }
+
+  viewStorageDetails(): void {
+    this.navigation.goToCloudStorage();
+  }
+
+  backToHome(): void {
+    this.navigation.goHome();
+  }
 
   constructor() {
     forkJoin([this.fileService.list('.'), this.folderService.list('.')]).subscribe({

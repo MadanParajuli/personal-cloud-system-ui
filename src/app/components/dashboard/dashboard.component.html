@@ -1,11 +1,16 @@
 <section class="dashboard" aria-labelledby="dashboard-title">
   <div class="welcome-row">
-    <div>
-      <p class="eyebrow">YOUR CLOUD, AT A GLANCE</p>
-      <h1 id="dashboard-title">A little more room to think.</h1>
-      <p class="welcome-copy">Your files, kept close and in your control.</p>
+    <div class="welcome-heading">
+      <button class="back-home" type="button" aria-label="Back to Home" (click)="backToHome()">
+        <span aria-hidden="true">←</span><span class="back-home-label">Back to Home</span>
+      </button>
+      <div>
+        <p class="eyebrow">YOUR CLOUD, AT A GLANCE</p>
+        <h1 id="dashboard-title">A little more room to think.</h1>
+        <p class="welcome-copy">Your files, kept close and in your control.</p>
+      </div>
     </div>
-    <a class="open-files" [routerLink]="routes.cloudFiles">Open my files <span aria-hidden="true">→</span></a>
+    <button class="open-files" type="button" (click)="openMyFiles()">Open my files <span aria-hidden="true">→</span></button>
   </div>
 
   <section class="overview" aria-labelledby="overview-title">
@@ -52,7 +57,7 @@
         <p class="eyebrow">CAPACITY</p>
         <h2 id="storage-title">Storage</h2>
       </div>
-      <a [routerLink]="routes.cloudStorage">Details <span aria-hidden="true">→</span></a>
+      <button class="storage-details" type="button" (click)="viewStorageDetails()">Details <span aria-hidden="true">→</span></button>
     </div>
     <div *ngIf="storage() as usage; else storageUnavailable">
       <div

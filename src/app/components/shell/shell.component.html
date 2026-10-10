@@ -6,19 +6,19 @@
     (click)="closeNavigation()"
   ></button>
   <aside class="sidebar" [class.sidebar-open]="navOpen()">
-    <a class="brand" [routerLink]="routes.cloudDashboard" (click)="closeNavigation()"
+    <a class="brand" [href]="dashboardHref" (click)="openDashboard($event)"
       ><span class="brand-mark">P</span
       ><span>personal<span class="brand-cloud">cloud</span></span></a
     >
     <p class="nav-label">WORKSPACE</p>
     <nav aria-label="Main navigation">
-      <a [routerLink]="routes.cloudDashboard" routerLinkActive="active" (click)="closeNavigation()"
+      <a [href]="dashboardHref" [class.active]="dashboardActive" (click)="openDashboard($event)"
         ><span class="nav-icon">⌂</span><span>Dashboard</span></a
       >
-      <a [routerLink]="routes.cloudFiles" routerLinkActive="active" (click)="closeNavigation()"
+      <a [href]="filesHref" [class.active]="filesActive" (click)="openFiles($event)"
         ><span class="nav-icon">▤</span><span>My files</span></a
       >
-      <a [routerLink]="routes.cloudStorage" routerLinkActive="active" (click)="closeNavigation()"
+      <a [href]="storageHref" [class.active]="storageActive" (click)="openStorage($event)"
         ><span class="nav-icon">◫</span><span>Storage</span></a
       >
     </nav>
