@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { HealthService } from '../../services/health.service';
 import { NavigationService } from '../../core/navigation.service';
+import { PortfolioHeaderComponent } from '../portfolio/header/portfolio-header.component';
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, PortfolioHeaderComponent, RouterOutlet],
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

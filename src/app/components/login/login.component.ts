@@ -5,18 +5,18 @@ import { finalize } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { userErrorMessage } from '../../core/error-message';
 import { NavigationService } from '../../core/navigation.service';
+import { PortfolioHeaderComponent } from '../portfolio/header/portfolio-header.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, PortfolioHeaderComponent, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
   private readonly navigation = inject(NavigationService);
-  readonly cloudHref = this.navigation.cloudUrl();
   private readonly formBuilder = inject(FormBuilder);
   private readonly auth = inject(AuthService);
   readonly loading = signal(false);
@@ -25,16 +25,6 @@ export class LoginComponent {
     username: ['', Validators.required],
     password: ['', Validators.required],
   });
-
-  openPersonalCloud(event: Event): void {
-    if (this.navigation.shouldUseNativeNavigation(event)) return;
-    event.preventDefault();
-    this.navigation.goToCloud();
-  }
-
-  backToHome(): void {
-    this.navigation.goHome();
-  }
 
   submit(): void {
     if (this.form.invalid || this.loading()) {

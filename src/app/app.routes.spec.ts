@@ -65,7 +65,9 @@ describe('application routes', () => {
     await harness.navigateByUrl(APP_ROUTES.root);
 
     expect(TestBed.inject(Router).url).toBe(APP_ROUTES.home);
-    expect(harness.routeNativeElement?.textContent).toContain('Building reliable systems');
+    expect(harness.routeNativeElement?.textContent).toContain(
+      'Building reliable backend systems and full-stack applications.',
+    );
   });
 
   it('redirects unknown and legacy root URLs to Home', async () => {

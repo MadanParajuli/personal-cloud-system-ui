@@ -1,17 +1,5 @@
 <div class="portfolio-frame">
-  <header class="site-header">
-    <a class="identity" [href]="homeHref" (click)="openHome($event)" aria-label="Madan Parajuli, home">
-      <span class="identity-mark" aria-hidden="true">MP</span>
-      <span class="identity-copy">Madan Parajuli<span>Software Engineer</span></span>
-    </a>
-    <nav aria-label="Main navigation">
-      <a [href]="homeHref" [class.active]="homeActive" (click)="openHome($event)">Home</a>
-      <a [href]="experienceHref" [class.active]="experienceActive" (click)="openExperience($event)">Experience</a>
-      <a [href]="projectsHref" [class.active]="projectsActive" (click)="openProjects($event)">Projects</a>
-      <a [href]="publicationsHref" [class.active]="publicationsActive" (click)="openPublications($event)">Publications</a>
-      <a class="cloud-link" [href]="cloudHref" (click)="openPersonalCloud($event)"><span aria-hidden="true">↗</span> Personal Cloud</a>
-    </nav>
-  </header>
+  <app-portfolio-header />
   <main class="page-content"><router-outlet /></main>
   <footer class="site-footer">
     <span>© {{ currentYear }} Madan Parajuli</span>

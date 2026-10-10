@@ -37,10 +37,6 @@ export class DashboardComponent {
     this.navigation.goToCloudStorage();
   }
 
-  backToHome(): void {
-    this.navigation.goHome();
-  }
-
   constructor() {
     forkJoin([this.fileService.list('.'), this.folderService.list('.')]).subscribe({
       next: ([files, folders]) => this.counts.set({ files: files.length, folders: folders.length }),

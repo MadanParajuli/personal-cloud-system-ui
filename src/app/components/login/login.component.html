@@ -1,3 +1,4 @@
+<app-portfolio-header />
 <main class="login-page">
   <div class="login-art" aria-hidden="true">
     <div class="orbit orbit-one"></div>
@@ -6,14 +7,6 @@
     <div class="art-mark">P<span>.</span></div>
   </div>
   <section class="login-panel" aria-labelledby="login-title">
-    <div class="login-topline">
-      <button class="back-home" type="button" aria-label="Back to Home" (click)="backToHome()">
-        <span aria-hidden="true">←</span><span class="back-home-label">Back to Home</span>
-      </button>
-      <a class="wordmark" [href]="cloudHref" (click)="openPersonalCloud($event)" aria-label="Personal Cloud entry"
-        ><span class="wordmark-mark">P</span><span>Personal Cloud</span></a
-      >
-    </div>
     <div class="login-copy">
       <p class="eyebrow">YOUR PRIVATE WORKSPACE</p>
       <h1 id="login-title">Welcome back.</h1>
