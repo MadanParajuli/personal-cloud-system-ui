@@ -20,7 +20,15 @@
           <div class="publication-meta">
             <span>{{ publication.venue }}</span>
             <span>{{ publication.year }}</span>
-            <a href="https://doi.org/{{ publication.doi }}" target="_blank" rel="noreferrer">DOI <span aria-hidden="true">↗</span></a>
+            @if (publication.doi.startsWith('http')) {
+              <a [href]="publication.doi" target="_blank" rel="noopener noreferrer">
+                View <span aria-hidden="true">↗</span>
+              </a>
+            } @else {
+              <a [href]="'https://doi.org/' + publication.doi" target="_blank" rel="noopener noreferrer">
+                DOI <span aria-hidden="true">↗</span>
+              </a>
+            }
           </div>
         </div>
       </li>
