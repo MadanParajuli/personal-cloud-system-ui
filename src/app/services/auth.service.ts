@@ -4,7 +4,13 @@ import { Router } from '@angular/router';
 import { Observable, catchError, finalize, of, shareReplay, tap, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { API_ENDPOINTS, APP_ROUTES } from '../core/app-routes';
-import { LoginRequest, LoginResponse, RefreshRequest } from '../core/models';
+import {
+  LoginChallengeResponse,
+  LoginRequest,
+  LoginResponse,
+  LoginResult,
+  RefreshRequest,
+} from '../core/models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -23,10 +29,32 @@ export class AuthService {
     return this.accessToken;
   }
 
-  login(credentials: LoginRequest): Observable<LoginResponse> {
+  login(credentials: LoginRequest): Observable<LoginResult> {
     return this.http
-      .post<LoginResponse>(`${environment.apiBaseUrl}${API_ENDPOINTS.authLogin}`, credentials)
-      .pipe(tap((tokens) => this.saveSession(tokens, credentials.username)));
+      .post<LoginResult>(`${environment.apiBaseUrl}${API_ENDPOINTS.authLogin}`, credentials)
+      .pipe(
+        tap((result) => {
+          if ('accessToken' in result) {
+            this.saveSession(result, credentials.username);
+          }
+        }),
+      );
+  }
+
+  verifyLogin(challengeId: string, code: string, username: string): Observable<LoginResponse> {
+    return this.http
+      .post<LoginResponse>(`${environment.apiBaseUrl}${API_ENDPOINTS.authLoginVerify}`, {
+        challengeId,
+        code,
+      })
+      .pipe(tap((tokens) => this.saveSession(tokens, username)));
+  }
+
+  resendLoginCode(challengeId: string): Observable<LoginChallengeResponse> {
+    return this.http.post<LoginChallengeResponse>(
+      `${environment.apiBaseUrl}${API_ENDPOINTS.authLoginResend}`,
+      { challengeId },
+    );
   }
 
   refreshSession(): Observable<LoginResponse> {

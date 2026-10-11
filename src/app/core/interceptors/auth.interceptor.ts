@@ -10,6 +10,8 @@ export const authInterceptor: HttpInterceptorFn = (request, next) => {
   const router = inject(Router);
   const publicEndpoints = [
     API_ENDPOINTS.authLogin,
+    API_ENDPOINTS.authLoginVerify,
+    API_ENDPOINTS.authLoginResend,
     API_ENDPOINTS.authRefresh,
     API_ENDPOINTS.authLogout,
     API_ENDPOINTS.health,

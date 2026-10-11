@@ -12,7 +12,7 @@
       <h1 id="login-title">Welcome back.</h1>
       <p class="muted">Sign in to reach your files.</p>
     </div>
-    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <form *ngIf="step() === 'credentials'" [formGroup]="form" (ngSubmit)="submit()" novalidate>
       <label for="username">Username</label
       ><input
         id="username"
@@ -29,10 +29,55 @@
         autocomplete="current-password"
         required
       />
-      <p *ngIf="error()" class="form-error" role="alert">{{ error() }}</p>
+      <p *ngIf="error()" class="form-error" role="alert" aria-live="assertive">{{ error() }}</p>
       <button class="sign-in" type="submit" [disabled]="loading()">
         {{ loading() ? 'Signing in…' : 'Sign in' }}
         <span *ngIf="!loading()" aria-hidden="true">→</span>
+      </button>
+    </form>
+    <form *ngIf="step() === 'code'" [formGroup]="codeForm" (ngSubmit)="verify()" novalidate>
+      <p class="muted code-intro">We sent a 6 digit code to {{ maskedEmail() }}</p>
+      <label for="verification-code">Verification code</label>
+      <input
+        #codeInput
+        id="verification-code"
+        type="text"
+        inputmode="numeric"
+        autocomplete="one-time-code"
+        maxlength="6"
+        pattern="[0-9]{6}"
+        formControlName="code"
+        (input)="onCodeInput($event)"
+        aria-describedby="code-error code-status"
+        required
+      />
+      <p *ngIf="codeExpired()" id="code-status" class="form-notice" aria-live="polite">
+        This code has expired. Request a new code to continue.
+      </p>
+      <p *ngIf="!codeExpired()" id="code-status" class="sr-only" aria-live="polite">
+        Code expires in {{ codeExpiresInSeconds() }} seconds.
+      </p>
+      <p *ngIf="error()" id="code-error" class="form-error" role="alert" aria-live="assertive">
+        {{ error() }}
+      </p>
+      <button
+        class="sign-in"
+        type="submit"
+        [disabled]="loading() || codeForm.invalid || codeExpired()"
+      >
+        {{ loading() ? 'Verifying…' : 'Verify' }}
+        <span *ngIf="!loading()" aria-hidden="true">→</span>
+      </button>
+      <button
+        class="resend-code"
+        type="button"
+        (click)="resendCode()"
+        [disabled]="loading() || resendCountdown() > 0"
+      >
+        Resend code<span *ngIf="resendCountdown() > 0"> ({{ resendCountdown() }}s)</span>
+      </button>
+      <button class="back-link" type="button" (click)="backToLogin()" [disabled]="loading()">
+        Back to login
       </button>
     </form>
     <p class="security-note">
